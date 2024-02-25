@@ -17,9 +17,7 @@ If you use this codebase, then please cite
 
 LICENSE: MIT
 
-<div style="width:20%; margin: auto;">
 ![multiflow-landing-page](https://github.com/jasonkyuyim/multiflow/blob/main/media/codesign.gif)
-</div>
 
 ## Installation
 
