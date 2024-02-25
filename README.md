@@ -17,7 +17,7 @@ If you use this codebase, then please cite
 
 LICENSE: MIT
 
-![multiflow-landing-page](https://github.com/jasonkyuyim/multiflow/blob/master/media/codesign.gif)
+![multiflow-landing-page](https://github.com/jasonkyuyim/multiflow/blob/main/media/codesign.gif)
 
 ## Installation
 
