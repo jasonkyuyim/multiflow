@@ -1,0 +1,119 @@
+defaults:
+ - _self_
+ - datasets
+ - model
+
+data:
+  # Available datasets: pdb
+  dataset: pdb
+
+  loader:
+    num_workers: 8
+    prefetch_factor: 10
+
+  sampler:
+    # Setting for 40GB GPUs
+    max_batch_size: 80
+    max_num_res_squared: 400_000
+
+    # Setting for 80GB GPUs
+    # max_batch_size: 128
+    # max_num_res_squared: 1_000_000
+
+interpolant:
+  min_t: 1e-2
+  separate_t: False
+  provide_kappa: False
+  hierarchical_t: False
+  codesign_separate_t: False
+  codesign_forward_fold_prop: 0.0
+  codesign_inverse_fold_prop: 0.0
+
+  rots:
+    corrupt: True
+    train_schedule: linear
+    sample_schedule: exp
+    exp_rate: 10
+
+  trans:
+    corrupt: True
+    batch_ot: True
+    train_schedule: linear
+    sample_schedule: linear
+    sample_temp: 1.0
+    vpsde_bmin: 0.1
+    vpsde_bmax: 20.0
+    potential: null
+    potential_t_scaling: False
+    rog:
+      weight: 10.0
+      cutoff: 5.0
+
+  aatypes:
+    corrupt: True
+    schedule: linear
+    schedule_exp_rate: 10
+    temp: 1.0
+    noise: 0.0
+    do_purity: False
+    train_extra_mask: 0.0
+    interpolant_type: masking
+
+  sampling:
+    num_timesteps: 100
+    do_sde: False
+  self_condition: ${model.edge_features.self_condition}
+
+folding:
+  seq_per_sample: 8
+  own_device: False
+  folding_model: esmf
+  pmpnn_path: ./ProteinMPNN/
+  pt_hub_dir: ./.cache/torch/
+
+experiment:
+  debug: False
+  seed: 123
+  num_devices: 2
+  warm_start: null
+  warm_start_cfg_override: False
+  raw_state_dict_reload: null
+  training:
+    mask_plddt: True
+    bb_atom_scale: 0.1
+    trans_scale: 0.1
+    aatypes_loss_weight: 0.0
+    aatypes_label_smoothing: 0.0 
+    aatypes_loss_mean_or_sum: mean
+    aatypes_loss_use_likelihood_weighting: False
+    translation_loss_weight: 2.0
+    t_normalize_clip: 0.9
+    rotation_loss_weights: 1.0
+    aux_loss_weight: 0.0
+    aux_loss_use_bb_loss: True
+    aux_loss_use_pair_loss: True
+    aux_loss_t_pass: 0.5
+  wandb:
+    name: ${data.task}_${data.dataset}
+    project: se3-fm
+  optimizer:
+    lr: 0.0001
+  trainer:
+    overfit_batches: 0
+    min_epochs: 1 # prevents early stopping
+    max_epochs: 200
+    accelerator: gpu
+    log_every_n_steps: 1
+    deterministic: False
+    strategy: ddp
+    check_val_every_n_epoch: 4
+    accumulate_grad_batches: 2
+  checkpointer:
+    dirpath: ckpt/${experiment.wandb.project}/${experiment.wandb.name}/${now:%Y-%m-%d}_${now:%H-%M-%S}
+    save_last: True
+    save_top_k: 3
+    every_n_epochs: 50
+    monitor: valid/codesign_bb_rmsd
+    mode: min
+  # Keep this null. Will be populated at runtime.
+  inference_dir: null

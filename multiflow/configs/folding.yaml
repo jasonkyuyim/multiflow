@@ -1,0 +1,8 @@
+
+folding:
+  seq_per_sample: 8
+  folding_model: esmf
+  own_device: False
+  pmpnn_path: ./ProteinMPNN/
+  pt_hub_dir: ./.cache/torch/
+  colabfold_path: path/to/colabfold-conda/bin/colabfold_batch # for AF2

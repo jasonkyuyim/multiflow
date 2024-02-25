@@ -1,0 +1,54 @@
+defaults:
+ - base
+ - _self_
+
+data:
+  task: hallucination
+
+  dataset: pdb
+
+  sampler:
+    # Setting for 40GB GPUs
+    max_batch_size: 64
+    max_num_res_squared: 400_000
+
+    # Setting for 80GB GPUs
+    # max_batch_size: 100
+    # max_num_res_squared: 800_000
+
+model:
+  aatype_pred: True
+  aatype_pred_num_tokens: 21
+  transformer_dropout: 0.2
+  node_features:
+    use_mlp: True
+    embed_aatype: True
+
+interpolant:
+  codesign_separate_t: True
+  codesign_forward_fold_prop: 0.1
+  codesign_inverse_fold_prop: 0.1
+  aatypes:
+    corrupt: True
+    temp: 0.1
+    do_purity: True
+    noise: 20.0
+    interpolant_type: masking
+
+experiment:
+  debug: False
+  raw_state_dict_reload: null
+  training:
+    aatypes_loss_weight: 1.0
+  num_devices: 8
+  warm_start: null
+  wandb:
+    name: codesign_${data.dataset}
+  trainer:
+    check_val_every_n_epoch: 6
+    accumulate_grad_batches: 2
+  checkpointer:
+    save_top_k: -1
+    every_n_epochs: 50
+    save_on_train_epoch_end: True
+    monitor: null

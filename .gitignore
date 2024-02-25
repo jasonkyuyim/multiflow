@@ -1,0 +1,13 @@
+weights/
+processed_pdb/
+*.zip
+*.egg-info/
+.cache/
+train_set/
+test_set/
+lightning_logs/
+notebooks/
+outputs/
+inference_outputs/
+*.tar.gz
+*.pyc
