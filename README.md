@@ -1,6 +1,7 @@
 # Multiflow: protein co-design with discrete and continuous flows
 
-Multiflow is a protein sequence and structure generative model.
+Multiflow is a protein sequence and structure generative model based on our preprint: [Generative Flows on Discrete State-Spaces: Enabling Multimodal Flows with Applications to Protein Co-Design](https://arxiv.org/abs/2402.04997). 
+
 Our codebase is developed on top of [FrameFlow](https://github.com/microsoft/frame-flow).
 The sequence generative model is adpated from [Discrete Flow Models (DFM)](https://github.com/andrew-cr/discrete_flow_models).
 
