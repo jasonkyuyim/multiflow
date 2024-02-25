@@ -15,6 +15,10 @@ If you use this codebase, then please cite
 }
 ```
 
+> [!NOTE]  
+> We expect there to be bugs and issues with other systems and environments.
+> Please create a github issue or pull request and we will attempt to help.
+
 LICENSE: MIT
 
 ![multiflow-landing-page](https://github.com/jasonkyuyim/multiflow/blob/main/media/codesign.gif)
