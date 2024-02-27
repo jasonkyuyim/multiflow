@@ -76,7 +76,7 @@ Authorize Wandb [here](https://wandb.ai/authorize).
 
 ## Data
 
-We host the datasets on dropbox. Go to this [dropbox link](https://www.dropbox.com/scl/fo/rz4b72kjnpndcni0b80kz/h?rlkey=rk0pi3s36dszag2bggr18hhww&dl=0).
+We host the datasets on Zenodo [here](https://zenodo.org/records/10714631?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjJjMTk2YjlmLTM4OTUtNGVhYi1hODcxLWE1ZjExOTczY2IzZiIsImRhdGEiOnt9LCJyYW5kb20iOiI4MDY5ZDUzYjVjMTNhNDllMDYxNmI3Yjc2NjcwYjYxZiJ9.C2eZZmRu-nu7H330G-DkV5kttfjYB3ANozdOMNm19uPahvtLrDRvd_4Eqlyb7lp24m06e4OHhHQ4zlj68S1O_A).
 Download the following files,
 * `real_train_set.tar.gz` (2.5 GB)
 * `synthetic_train_set.tar.gz` (220 MB)
@@ -126,7 +126,7 @@ Most important fields:
 
 ## Inference
 
-We provide pre-trained model weights at this [dropbox link](https://www.dropbox.com/scl/fo/rz4b72kjnpndcni0b80kz/h?rlkey=rk0pi3s36dszag2bggr18hhww&dl=0).
+We provide pre-trained model weights at this [Zenodo link](https://zenodo.org/records/10714631?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6IjJjMTk2YjlmLTM4OTUtNGVhYi1hODcxLWE1ZjExOTczY2IzZiIsImRhdGEiOnt9LCJyYW5kb20iOiI4MDY5ZDUzYjVjMTNhNDllMDYxNmI3Yjc2NjcwYjYxZiJ9.C2eZZmRu-nu7H330G-DkV5kttfjYB3ANozdOMNm19uPahvtLrDRvd_4Eqlyb7lp24m06e4OHhHQ4zlj68S1O_A).
 
 Run the following to unpack the weights
 ```bash
