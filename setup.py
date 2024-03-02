@@ -7,4 +7,9 @@ tools.setup(
         'multiflow',
         'ProteinMPNN'
     ],
+    package_dir={
+        'openfold': './openfold',
+        'multiflow': './multiflow',
+        'ProteinMPNN': './ProteinMPNN',
+    },
 )
